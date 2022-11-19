@@ -2,7 +2,7 @@
 layout: default
 title: Getting Started
 nav_order: 2
-permalink: FluentAvaloniaDocs/pages/GettingStarted
+permalink: /pages/GettingStarted
 has_children: true
 ---
 

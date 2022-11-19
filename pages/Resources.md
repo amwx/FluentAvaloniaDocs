@@ -2,7 +2,7 @@
 layout: default
 title: Fluent v2 Resources
 nav_order: 4
-permalink: FluentAvaloniaDocs/pages/Resources
+permalink: /pages/Resources
 ---
 
 # Fluent v2 Theme Resources

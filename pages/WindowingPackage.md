@@ -2,7 +2,7 @@
 layout: default
 title: Windowing Package
 nav_order: 2
-permalink: FluentAvaloniaDocs/pages/WindowingPackage
+permalink: /pages/WindowingPackage
 parent: Getting Started
 ---
 
