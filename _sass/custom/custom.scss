@@ -1,0 +1,233 @@
+@import "./color_schemes/dark";
+
+body{
+    background-color: #202020;
+}
+
+.side-bar
+{
+    background-color: #20203245;
+}
+
+.search, .search-input-wrap, .search-input
+{
+    background-color: #202020; 
+    color: white;
+    align-items: center;
+    display: flex;
+}
+
+.search-input-wrap
+{
+    margin-left: 2rem;
+    background: linear-gradient(#FFFFFF12 0 calc(100% - 1px), #FFFFFF8B calc(100% - 1px));
+    height: auto !important;
+    width: auto !important;    
+    border-radius: 4px;
+}
+
+.search-input-wrap:focus-within
+{
+    background: linear-gradient(#FFFFFF12 0 calc(100% - 2px), slateblue calc(100% - 2px)) !important;
+    padding-top: 0px;
+    margin-top: 1px;
+}
+
+.search-input
+{
+    position: relative;
+    background-color: #2F2D27;
+    height: 32px !important;
+    width: 256px !important;
+    border-radius: 4px;
+    padding: 5px 6px 6px 40px;
+    
+    min-width: 256px;
+    margin: 1px;
+}
+
+.search-input:focus
+{
+    margin: 1px 1px 2px 1px;
+    background-color: #1C1C1C;
+}
+
+.search-label
+{
+    padding-left: 12px;
+}
+
+.site-logo
+{
+    width: 48px;
+    height: 48px;
+}
+
+p.platform::before
+{
+    color: #EFEFEF !important;
+}
+
+p.note::before
+{
+    color: #A385E9 !important;
+}
+
+.side-bar
+{
+    transition: width 0.33s;
+    transition-timing-function: cubic-bezier(0, 0, 0, 1);
+}
+.main
+{
+    transition: margin-left 0.33s;
+    transition-timing-function: cubic-bezier(0, 0, 0, 1);
+}
+
+.nav-list .nav-list-item
+{
+    margin: 2px;
+    border-radius: 4px;
+    border-collapse: separate; 
+    overflow: hidden;
+}
+
+.nav-list .nav-list-item a
+{
+    color: white;
+}
+
+.nav-list .nav-list-item
+{
+    padding: 0;
+}
+
+.nav-list .nav-list-item .nav-list-link:hover, .nav-list .nav-list-item .nav-list-link.active
+{
+    background-color: #FFFFFF0F;
+    background-image: none;
+}
+
+.nav-list .nav-list-item > .nav-list
+{
+    padding-left: 0;
+}
+.nav-list .nav-list-item > .nav-list .nav-list-item
+{
+    margin: 2px 0px;
+}
+
+.nav-list .nav-list-item > .nav-list .nav-list-item a
+{
+    padding-left: 2.75rem;
+}
+
+.nav-list .nav-list-item > .nav-list .nav-list-item .nav-list-link
+{
+    color: white;
+}
+
+.nav-list .nav-list-item .nav-list-expander {
+	color: #FFFFFFC5;
+}
+
+.table-wrapper
+{
+    max-width: 750px;
+    box-shadow: none;
+    overflow-x: visible;
+}
+
+table
+{
+    border: 1px solid #FFFFFF15;
+    border-collapse:  collapse;
+}
+
+td
+{
+    background: none;
+}
+
+table th, table td
+{
+    border: none;
+    border-top: 1px solid #FFFFFF15;
+}
+
+
+.resourceTable td
+{
+    text-align: center;
+}
+.resourceTable tr td:first-of-type
+{
+    text-align: left;
+}
+
+.resourceTable td p
+{
+    margin: 0.25rem;
+}
+
+
+@media (min-width: 50rem)
+{
+    .site-title
+    {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .site-header
+    {
+        border-bottom: none;
+    }
+    .main-header
+    {
+        border-bottom: 1px solid #FFFFFF15;
+    }
+    .side-bar
+    {
+        border-right: 1px solid #FFFFFF15;
+    }
+
+    table .nameCell
+    {
+        width: 33% !important;
+    }
+    
+}
+
+
+// .site-title
+// {
+//     background-image: url(../../Assets/FAIcon.ico);
+//     background-position: 0 0;
+//     background-repeat: no-repeat;
+//     bac
+// }
+
+// .main{
+//     max-width: none;
+// }
+
+@media (min-width: 66.5rem)
+{
+    .side-bar
+    {
+        width: 325px;
+    }
+    .main 
+    {
+        margin-left: 325px;
+        max-width: none;
+    }
+    .site-nav, .site-header, .site-footer 
+    {
+        width: 100%;
+    }
+    .main-content
+    {
+        max-width: calc(100% - 325px);
+    }   
+}
