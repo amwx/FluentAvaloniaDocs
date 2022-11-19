@@ -1,9 +1,35 @@
 title: FluentAvalonia Docs
 description: Documentation for FluentAvalonia
 theme: just-the-docs
+remove_theme: just-the-docs/just-the-docs@v0.4.0.rc3
 color_scheme: dark
 
-# url: https://just-the-docs.github.io
+callouts_level: quiet # or loud
+callouts:
+  warning:
+    title: Warning
+    color: yellow
+  platform:
+    title: Platforms
+    color: grey-dk
+  important:
+    title: Important
+    color: green
+  tip:
+    title: Tip
+    color: blue
+  caution:
+    title: Caution
+    color: red
+  # error:
+  #   title: Error
+  #   color: pink
+  note:
+    title: NOTE
+    color: purple
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  "Github":
+    - "//github.com/amwx/FluentAvalonia/"
+  "Avalonia":
+    - "//github.com/AvaloniaUI/Avalonia"
