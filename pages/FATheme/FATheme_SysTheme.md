@@ -8,34 +8,24 @@ parent: FluentAvaloniaTheme
 
 # Fluent v2 Themes
 
-As in WinUI, both light and dark theme modes are available within FluentAvalonia. The desired theme can be set manually or, where supported, can be automatically resolved from the operating system. The theme can be changed at any time during the lifetime of the app without needing to restart. A HighContrast theme is available as well and will automatically resolve (Windows only) if enabled on the system. The HighContrast theme also respects the color variations in Windows 11.
-
-For convenience, FATheme provides static string references to the theme names:
-```csharp
-public static readonly string LightModeString = "Light";
-public static readonly string DarkModeString = "Dark";
-public static readonly string HighContrastModeString = "HighContrast";
-```
+FluentAvalonia supports Light, Dark, and HighContrast themes in the Fluentv2 style. FATheme uses the new platform color APIs in Avalonia 11.0 to detect the system theme, though retains some custom logic for KDE systems for resolving the system theme that isn't available in Avalonia. 
 
 ## Setting the theme - Manual
 
-Use the `RequestedTheme` property to set the desired theme mode of the app. Valid values (case-insensitive) are `Light`, `Dark`, or `HighContrast`. Custom theme names are not supported.
+Use the `RequestedThemeVariant` property on supported Avalonia controls (such as `Application`) to set the desired theme variant for a given scope. 
 <br/>
 
 ## Setting the theme - Automatic
 
-{: .platform }
-Windows fully supported. MacOS and linux may work depending on the environment. `PreferSystemTheme` has no effect on WASM or mobile
+FluentAvaloniaTheme has retained the `PreferSystemTheme` property, which now has the default value of `false`. However, it has a slightly different behavior now as much of the theme detection is now taken care of by Avalonia. Primarily, this property now affects the following:
 
-To have FATheme automatically resolve the system theme and use it, make sure the `PreferSystemTheme` property is set to `true`, which is the default value. If this lookup fails for any reason, or the platform is not configured to support this, the fallback behavior is to use the `RequestedTheme` property. If `RequestedTheme` is unset, Light mode is used.
+- On supported systems where the platform APIs request HighContrast, FATheme will step in and set the HighContrast theme for the app
+- On KDE systems, where FATheme has custom logic not offered by Avalonia.
 
 {: .note }
-Upon app startup, `PreferSystemTheme` will always override the `RequestedTheme` and is only used for fallback. After initialization, `RequestedTheme` can be freely changed.
+Upon app startup, `PreferSystemTheme = true` will always override the `RequestedThemeVariant` set on the Application with what it determined as the current system theme. Setting `PreferSystemTheme = false` may still resolve the system theme (this is done in Avalonia) if you didn't set a RequestedThemeVariant
 <br/>
 
 
 ## Responding to system theme changes
-Even if you've set `PreferSystemTheme` to `true`, FATheme will not automatically switch if the system does. However, if you monitor for this yourself, you can force automatic invalidation of the system resources by calling `InvalidateThemingFromSystemThemeChange()`. This works for both theme and accent color.
-
-{: .note }
-If you use `AppWindow` provided in the FluentAvalonia.UI.Windowing package and are on Windows, this is automatically handled by listening for a `WM_SETTINGCHANGE` windows message.
+FATheme subscribes to the `IPlatformSettings.ColorValuesChanged` event and will automaitcally handle switching themes based on the system, provided that is supported on the current OS. 

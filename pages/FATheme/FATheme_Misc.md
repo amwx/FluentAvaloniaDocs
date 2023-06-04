@@ -17,7 +17,7 @@ Use the `UseSystemFontOnWindows` property to ensure the `Segoe UI` (Windows 10) 
 
 ## Control text vertical alignment
 
-FluentAvalonia is based on Microsoft's Fluent design system which requires the Segoe UI font family. On non-Windows platforms where these fonts aren't available, some mis-alignments may occur as certain controls use margins or alignments specifically designed for these fonts (see PR #210 for more). The `TextVerticalAlignmentOverrideBehavior` property adds options to help correct this. The `TextVerticalAlignmentOverride` enum has 3 values:
+FluentAvalonia is based on Microsoft's Fluent design system which requires the Segoe UI font family. On non-Windows platforms where these fonts aren't available, some mis-alignments may occur as certain controls use margins or alignments specifically designed for these fonts (see [PR #210](https://github.com/amwx/FluentAvalonia/pull/210) for more). The `TextVerticalAlignmentOverrideBehavior` property adds options to help correct this. The `TextVerticalAlignmentOverride` enum has 3 values:
 
 - `Disabled`
   - Don't use any corrections (use the styles as-is)

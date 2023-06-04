@@ -7,7 +7,7 @@ has_children: true
 ---
 
 # FluentAvaloniaTheme
-FluentAvaloniaTheme (abbr. FATheme) is my custom theme manager for supplying the fluent v2 styles for all Avalonia controls and the custom controls within FluentAvalonia. FATheme supports runtime theme changing and has options to pull theme information from certain operating systems to ensure your app blends in with the user's current system settings (note that not all operating systems are supported)
+FluentAvaloniaTheme (abbr. FATheme) is the theme manager for supplying the Fluent v2 styles for all Avalonia controls and the custom controls within FluentAvalonia. FATheme uses the new ThemeDictionary and ThemeVariant APIs now available in Avalonia 11.0, thus supporting automatic theme detection and fast runtime theme changing.
 
 ## Using FATheme
 
@@ -25,4 +25,4 @@ Some resources are handled internally by FluentAvaloniaTheme and not exposed in 
 - `SymbolThemeFontFamily`
 
 {: .warning }
-It is not advised to override the SymbolThemeFontFamily resource. Doing so will break `SymbolIcon` and may break some controls that rely on this font via `SymbolIcon` or `FontIcon`
+It is not advised to override the SymbolThemeFontFamily resource. Doing so may affect the visual appearances of some controls which rely on glyphs from this font.

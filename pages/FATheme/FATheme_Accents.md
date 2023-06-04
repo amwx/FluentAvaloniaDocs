@@ -23,10 +23,10 @@ The Fluent theme provides a `SystemAccentColor` resource that is used all throug
 
 ## Using the System's accent color
 
-{: .platform }
-Windows fully supported. Linux is implemented only on KDE, LXQt, and LXDE. MacOS works if `defaults read -g AppleAccentColor` returns successfully. `PreferUserAccentColor` has no effect on WASM or mobile
+Use the `PreferUserAccentColor` property to set how FATheme sets the AccentColor upon startup, the default value is `false`. If the property is set to `true`:
 
-To use the system's accent color, set `PreferUserAccentColor` to true (default value). If this lookup fails, or is unavailable on the current platform, a custom accent color can be specified, or the default (based on the color SlateBlue) is used.
+- On Windows, `SystemAccentColor` and the 6 variants (3 light, 3 dark) are loaded from the system
+- On all other platforms, the primary accent color is loaded from the `IPlatformSettings` and the 6 variants are auto generated
 
 ## Using a custom accent color - `CustomAccentColor` property
 
@@ -49,8 +49,5 @@ As with any xaml resource, you can always override the SystemAccentColor resourc
 ```
 
 ## Responding to system theme changes
-Even if you've set `PreferUserAccentColor` to `true`, FATheme will not automatically switch if the system does. However, if you monitor for this yourself, you can force automatic invalidation of the system resources by calling `InvalidateThemingFromSystemThemeChange()`. This works for both theme and accent color.
-
-{: .note }
-If you use `AppWindow` provided in the FluentAvalonia.UI.Windowing package and are on Windows, this is automatically handled by listening for a `WM_SETTINGCHANGE` windows message.
+Like the system theme (light/dark mode), FATheme will automatically adjust the system accent color if the underlying platform supports this via the `IPlatformSettings.ColorValuesChanged` event.
 
